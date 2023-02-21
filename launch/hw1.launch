@@ -1,0 +1,50 @@
+<launch>
+
+<arg name="savedata" default="false"/>
+<arg name="bag_prefix" default="enae788m_hw1"/>
+<arg name="mavros_run"          default="true"/>
+<arg name="offboard_output"     default="true"/>
+<arg name="veh_name" default="VOXL1"/>
+
+
+	<!-- vim: set ft=xml noet : -->
+	<!-- example launch script for PX4 based FCU's -->
+
+	<arg name="fcu_url" default="udp://127.0.0.1:14540@:14540" />
+	<arg name="gcs_url" default="" />
+	<arg name="tgt_system" default="1" />
+	<arg name="tgt_component" default="1" />
+	<arg name="log_output" default="screen" />
+	<arg name="fcu_protocol" default="v2.0" />
+	<arg name="respawn_mavros" default="false" />
+
+	<include file="$(find mavros)/launch/node.launch">
+		<arg name="pluginlists_yaml" value="$(find mavros)/launch/px4_pluginlists.yaml" />
+		<arg name="config_yaml" value="$(find mavros)/launch/px4_config.yaml" />
+
+		<arg name="fcu_url" value="$(arg fcu_url)" />
+		<arg name="gcs_url" value="$(arg gcs_url)" />
+		<arg name="tgt_system" value="$(arg tgt_system)" />
+		<arg name="tgt_component" value="$(arg tgt_component)" />
+		<arg name="log_output" value="$(arg log_output)" />
+		<arg name="fcu_protocol" value="$(arg fcu_protocol)" />
+		<arg name="respawn_mavros" default="$(arg respawn_mavros)" />
+	</include>
+
+        <!-- Offboard Package -->
+
+        <node if="$(arg offboard_output)" pkg="offboard" type="hw1_node" name="offboard_hw1" output="screen">
+        </node>
+
+        <!-- Save Data -->
+        <group if="$(arg savedata)">
+        <arg name="bagfile" default="$(arg bag_prefix)_$(arg veh_name)"/>
+        <arg name="bagpath" default="bag"/>
+        <node pkg="rosbag" type="record" name="record" output="screen"
+        args="-O $(find offboard)/$(arg bagpath)/$(arg bagfile) -b 0
+	/mavros/local_position/pose
+	/mavros/setpoint_raw/local
+     ">
+      </node>
+ </group>
+</launch>
