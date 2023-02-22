@@ -2,6 +2,12 @@
 
 Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 2023)_.
 
+Using https://docs.px4.io/master/en/ros/mavros_offboard.html as reference, the code is modified to demonstrate the drone beginning at (x: 0, y: 0, z: 10) and then follow the repeating pattern:
+- Move forward 10 virtual meters
+- Move up (heave) 15 virtual meters
+- Move left 5 virtual meters
+- Return to (0,0,10)
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/40534801/220497867-db602e25-23a4-436b-aed1-218f8a1b2543.gif" width="600" height="400">
 </p>
@@ -41,12 +47,15 @@ Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 
         make px4_sitl_default jmavsim
         ```
     * Launch QGroundControl by double clicking the ```QGroundControl.AppImage``` file.
+    * Perform a take-off of the drone and wait until it reaches a height of 10m. 
     * Open another terminal and run the following to launch the offboard node and save the bag data:
         ```
         cd ~/catkin_ws
         catkin_make
         roslaunch offboard hw1.launch savedata:=true
         ```
+
+        Note: After executing the above roslaunch command, change the mode in QGroundControl from either Hold/Position to Offboard.
 
 2. To read the generated bag file and plot the corresponding commanded and actual trajectory of the drone:
     ```
@@ -55,7 +64,6 @@ Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 
     ```
 
 ## Package Structure
-<<<<<<< HEAD
 ```
 ├─ CMakeLists.txt
 ├─ README.md
@@ -73,5 +81,3 @@ Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 
    ├─ enae788m_hw1.cpp                      # Code to perform waypoint tracking as given in HW1 
    ├─ enae788m_plot.py                      # Code to visualize recorded ROS topics using rosbag
    └─ offboard_example.cpp
-=======
->>>>>>> 0e80b89a92e8c45ce6ea518749b00c8c16eda8bf
