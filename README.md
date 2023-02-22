@@ -56,3 +56,20 @@ Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 
     ```
 
 ## Package Structure
+```
+├─ CMakeLists.txt
+├─ README.md
+├─ bag
+│  ├─ enae788m_hw1_VOXL1
+│  │  ├─ mavros-local_position-pose.csv
+│  │  └─ mavros-setpoint_raw-local.csv
+│  └─ enae788m_hw1_VOXL1.bag                # Saved rosbag for /mavros/local_position/pose & /mavros/setpoint_raw/local
+├─ launch
+│  ├─ hw1.launch                            # Launch file to run enae788m_hw1.cpp and rosbag record 
+│  ├─ record_data.launch
+│  └─ total_launch.launch
+├─ package.xml
+└─ src
+   ├─ enae788m_hw1.cpp                      # Code to perform waypoint tracking as given in HW1 
+   ├─ enae788m_plot.py                      # Code to visualize recorded ROS topics using rosbag
+   └─ offboard_example.cpp
