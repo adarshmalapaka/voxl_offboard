@@ -8,13 +8,13 @@ Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 
 ### Trajectory v/s Time Plot
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/40534801/190576008-6ef15b41-68dc-401e-ae69-06a554e4d8a9.png" width="600" height="400">
-</p
+  <img src="https://user-images.githubusercontent.com/40534801/220487968-b638adb0-17e4-4ceb-b03d-d665add99305.png" width="600" height="600">
+</p>
 
 ### 3D Trajectory Plot
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/40534801/190575327-45e55da9-9828-4041-b77c-a54f6546acfa.jpeg" width="600" height="300">
+  <img src="https://user-images.githubusercontent.com/40534801/220487934-8dcc68c7-337e-4780-ad9b-77483228bbeb.png" width="300" height="300">
 </p>
 
 
