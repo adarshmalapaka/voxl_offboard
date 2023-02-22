@@ -2,6 +2,10 @@
 
 Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 2023)_.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40534801/220497492-5f71c78e-274e-4f56-a53a-555a3cd830aa.gif
+" width="600" height="400">
+</p>
 
 ## Plots
 
