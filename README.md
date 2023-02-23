@@ -30,17 +30,26 @@ Using https://docs.px4.io/master/en/ros/mavros_offboard.html as reference, the c
 ## Developer Documentation
 
 ### Dependencies 
-* PX4 jmavsim
-* QGroundControl
-* roscpp
-* os
-* pandas
-* bagpy
-* matplotlib
+* [PX4 jmavsim](http://docs.px4.io/main/en/simulation/jmavsim.html)
+* [QGroundControl](http://qgroundcontrol.com/)
+* [ROS Noetic (roscpp)](http://wiki.ros.org/noetic)
+* [MAVROS](https://github.com/mavlink/mavros)
+* [os](https://docs.python.org/3/library/os.html)
+* [pandas](https://pandas.pydata.org/)
+* [bagpy](https://github.com/jmscslgroup/bagpy)
+* [matplotlib](https://matplotlib.org/)
 
 ### Running the Codes
 
-1. To run the waypoint tracking demo:
+1. Open a terminal and clone the repository in the ```src``` directory of your ROS catkin workspace into a folder/package called ```offboard```.
+  ```
+  source /opt/ros/noetic/setup.bash
+  cd ~/catkin_ws/src
+  git clone https://github.com/adarshmalapaka/voxl_offboard.git offboard
+  cd ..
+  catkin_make 
+  ```
+2. To run the waypoint tracking demo:
     * Start the PX4 ```jmavsim``` simulator:
         ```
         cd /PX4-Autopilot
@@ -50,16 +59,14 @@ Using https://docs.px4.io/master/en/ros/mavros_offboard.html as reference, the c
     * Perform a take-off of the drone and wait until it reaches a height of 10m. 
     * Open another terminal and run the following to launch the offboard node and save the bag data:
         ```
-        cd ~/catkin_ws
-        catkin_make
+        source /opt/ros/noetic/setup.bash
         roslaunch offboard hw1.launch savedata:=true
         ```
 
         Note: After executing the above roslaunch command, change the mode in QGroundControl from either Hold/Position to Offboard.
-
-2. To read the generated bag file and plot the corresponding commanded and actual trajectory of the drone:
+3. To read the generated bag file and plot the corresponding commanded and actual trajectory of the drone:
     ```
-    cd /src
+    cd ~/catkin_ws/src/offboard/src
     python3 enae788m_plot.py
     ```
 
