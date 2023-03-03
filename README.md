@@ -2,15 +2,30 @@
 
 Homework 01 for the course _ENAE788M: Hands-on Autonomous Aerial Robots (Spring 2023)_.
 
-Using https://docs.px4.io/master/en/ros/mavros_offboard.html as reference, the code is modified to demonstrate the drone beginning at (x: 0, y: 0, z: 10) and then follow the repeating pattern:
+Using https://docs.px4.io/master/en/ros/mavros_offboard.html as reference, the code is modified to demonstrate the ModalAI VOXL drone beginning at (x: 0, y: 0, z: 10) and then follow the repeating pattern:
 - Move forward 10 virtual meters
 - Move up (heave) 15 virtual meters
 - Move left 5 virtual meters
 - Return to (0,0,10)
 
+### Simulation Demo
 <p align="center">
   <img src="https://user-images.githubusercontent.com/40534801/220497867-db602e25-23a4-436b-aed1-218f8a1b2543.gif" width="600" height="400">
 </p>
+<!-- <p align = "center">
+Simulation Demo
+</p> -->
+
+### Actual Drone Demo 
+<p align="center">
+<a href="https://www.youtube.com/watch?v=OxwKLBLmSRM" target="_blank">
+ <img src="https://user-images.githubusercontent.com/40534801/222610290-23971b0c-a4b2-468f-8402-08df58c8e68b.png" alt="Watch the Simulation" width="450" height="300" border="10" />
+</a>
+</p>
+<!-- <p align = "center">
+Demo on an actual ModalAI VOXL drone.
+</p> -->
+
 
 ## Plots
 
