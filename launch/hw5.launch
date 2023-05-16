@@ -1,9 +1,10 @@
 <launch>
 
 <arg name="savedata" default="false"/>
-<arg name="bag_prefix" default="enae788m_hw5"/>
+<arg name="bag_prefix" default="enae788m_hw1"/>
 <arg name="mavros_run"          default="true"/>
-<arg name="offboard_output"     default="true"/>
+<arg name="offboard_output"     default="false"/>
+<arg name="offboard_output_python"     default="true"/>
 <arg name="detect_plant"     default="false"/>
 <arg name="veh_name" default="VOXL1"/>
 
@@ -11,7 +12,7 @@
 	<!-- vim: set ft=xml noet : -->
 	<!-- example launch script for PX4 based FCU's -->
 
-	<arg name="fcu_url" default="udp://192.168.78.166:14551@:14551" />
+	<arg name="fcu_url" default="udp://127.0.0.1:14551@:14551" />
 	<arg name="gcs_url" default="" />
 	<arg name="tgt_system" default="1" />
 	<arg name="tgt_component" default="1" />
@@ -34,12 +35,13 @@
 
         <!-- Offboard Package -->
 
-        <node if="$(arg offboard_output)" pkg="offboard" type="hw5_node" name="offboard_hw5" output="screen">
-        </node>
-        
-        <node if="$(arg detect_plant)" pkg="offboard" type="enae788m_detect_plant.py" name="detect_plant" output="screen">
-        </node>
-        
+    <node if="$(arg offboard_output)" pkg="offboard" type="hw5_node" name="offboard_hw5" output="screen">
+    </node>
+
+	<node if="$(arg detect_plant)" pkg="offboard" type="enae788m_detect_plant.py" name="detect_plant" output="screen">
+    </node>
+
+	<node if="$(arg offboard_output_python)" pkg="offboard" type="enae788m_finalproj.py" name="offboard_hw5" output="screen" />	
 
         <!-- Save Data -->
         <group if="$(arg savedata)">
