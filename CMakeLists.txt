@@ -61,6 +61,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(${PROJECT_NAME}_node src/offboard_example.cpp)
 add_executable(hw1_node src/enae788m_hw1.cpp)
+add_executable(hw5_node src/enae788m_finalproj.cpp)
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(${PROJECT_NAME}_node
@@ -71,3 +72,6 @@ add_executable(hw1_node src/enae788m_hw1.cpp)
  ${catkin_LIBRARIES}
 )
 
+ target_link_libraries(hw5_node
+ ${catkin_LIBRARIES}
+)
